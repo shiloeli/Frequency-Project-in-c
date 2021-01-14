@@ -13,7 +13,8 @@ Node *crateRoot(){
         n->count = 0;
         n->letter = 0;
         n->isWord = FALSE;
-        n->word = (char*)malloc(0);
+        n->word = (char*)malloc(1);
+        n->word[0] = 0;
           for(int i=0 ; i < NUM_LETTERS ; i++){
             n -> children[i] = NULL;
         }
@@ -28,7 +29,7 @@ Node *newNode(Node *root, char c){
         n->count = 0;
         n->letter = c;
         n->isWord = FALSE;
-        n -> word = (char*)malloc(sizeof(strlen(root->word)+2));
+        n -> word = (char*)malloc(strlen(root->word)+2);
         if(!(n->word)) exit(1);
         for(int i = 0; i<strlen(root->word); i++){
           n->word[i] =root->word[i]; 
@@ -42,7 +43,7 @@ Node *newNode(Node *root, char c){
 }
 
 int charToIndex(char c){
-    return ((int)c - (int)'a'); 
+    return (c -'a'); 
 }
 
 bool charIsCurrct(char c){
