@@ -1,8 +1,9 @@
 #ifndef FREQUENCY_H
 #define FREQUENCY_H
+#include <stdbool.h>
 
 #define NUM_LETTERS ((int)26)
-
+typedef enum {FALSE=0, TRUE=1} boolean;
 
 typedef struct node {
     char letter;
