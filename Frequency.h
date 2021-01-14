@@ -2,22 +2,23 @@
 #define FREQUENCY_H
 
 #define NUM_LETTERS ((int)26)
-typedef enum {FALSE=0, TRUE=1} boolean;
+
 
 typedef struct node {
     char letter;
     long unsigned int count;
-    boolean isLeaf;
+    bool isWord;
     struct node* children[NUM_LETTERS];
-    char* prev;
+    char* word;
 } Node;
-Node* buildTrie();
+
+Node *crateRoot();
 Node *newNode(Node *root, char c);
 int insert(Node *root);
-int search(Node *root, const char *key);
 int charToIndex(char c);
+bool charIsCurrct(char c);
 void printWords(Node *root);
 void printWordsRevers(Node *root);
-// Node* buildTrie();
+Node* buildTrie();
 
 #endif
